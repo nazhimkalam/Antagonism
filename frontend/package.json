@@ -14,6 +14,7 @@
     "@typescript-eslint/eslint-plugin": "^4.8.1",
     "@typescript-eslint/parser": "^4.8.1",
     "@wojtekmaj/enzyme-adapter-react-17": "^0.6.5",
+    "antd": "^4.17.1",
     "enzyme": "^3.11.0",
     "eslint": "^7.11.0",
     "eslint-config-airbnb-typescript": "^12.0.0",
@@ -33,6 +34,7 @@
     "redux-devtools-extension": "^2.13.8",
     "redux-mock-store": "^1.5.4",
     "redux-persist": "^6.0.0",
+    "styled-components": "^5.3.3",
     "typescript": "^4.2.4"
   },
   "scripts": {
@@ -57,5 +59,8 @@
       "last 1 firefox version",
       "last 1 safari version"
     ]
+  },
+  "devDependencies": {
+    "@types/styled-components": "^5.1.15"
   }
 }
