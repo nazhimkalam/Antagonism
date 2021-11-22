@@ -1,5 +1,6 @@
 import React from 'react'
 import { BrowserRouter, Switch, Route } from 'react-router-dom'
+import LandingPage from './pages/landing/LandingPage'
 
 const App = () => {
   return (
@@ -7,8 +8,7 @@ const App = () => {
       {/* <Navbar /> */}
       <div className="container">
         <Switch>
-          {/* <Route path="/" component={Home} exact />
-          <Route path="/about" component={About} /> */}
+          <Route path="/" component={LandingPage} exact />
         </Switch>
       </div>
     </BrowserRouter>
