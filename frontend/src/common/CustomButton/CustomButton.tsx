@@ -24,8 +24,8 @@ export default CustomButton
 
 const ButtonContainer = styled.div`
     button{
-        width: 100px;
-        border-radius: 999px;
+        width: 150px;
+        border-radius: 5px;
         margin: .3pc;
     }
     .primary {

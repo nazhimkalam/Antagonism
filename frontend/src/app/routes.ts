@@ -2,7 +2,7 @@ import LandingPage from "../pages/landing/LandingPage"
 import LoginPage from "../pages/login/LoginPage"
 import RegisterPage from "../pages/register/RegisterPage"
 
-const routePaths = {
+const RoutePaths = {
     landing: '/',
     login: '/login',
     register: '/register',
@@ -10,23 +10,23 @@ const routePaths = {
 
 const GetRoutes = [
     {
-        path: routePaths.landing,
+        path: RoutePaths.landing,
         component: LandingPage,
         exact: true,
         authGuard: false
     },
     {
-        path: routePaths.login,
+        path: RoutePaths.login,
         component: LoginPage,
         exact: true,
         authGuard: false
     },
     {
-        path: routePaths.register,
+        path: RoutePaths.register,
         component: RegisterPage,
         exact: true,
         authGuard: false
     }
 ]
 
-export { routePaths, GetRoutes }
+export { RoutePaths, GetRoutes }

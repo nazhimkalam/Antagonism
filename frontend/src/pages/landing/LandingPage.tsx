@@ -1,18 +1,29 @@
 import { Image, Typography } from 'antd';
 import React from 'react'
+import { useHistory } from 'react-router';
 import styled from 'styled-components';
+import { RoutePaths } from '../../app/routes';
 import CustomButton from '../../common/CustomButton/CustomButton';
 
 const LandingPage = () => {
     const { Title } = Typography;
+    const history = useHistory();
+
+    const navigateToLogin = () => {
+        history.push(RoutePaths.login);
+    }
+
+    const navigateToRegister = () => {
+        history.push(RoutePaths.register);
+    }
 
     return (
         <Container>
             <Image src="logos/logo1.png" alt="logo" title="Antagonism" preview={false} />
             <Title level={2}>Welcome to Antagonism</Title>
             <ButtonContainer>
-                <CustomButton type="primary" content="Login" handleEvent={() => {}}/>
-                <CustomButton type="secondary" content="Sign up" handleEvent={() => {}}/>
+                <CustomButton type="primary" content="Login" handleEvent={navigateToLogin}/>
+                <CustomButton type="secondary" content="Sign up" handleEvent={navigateToRegister}/>
             </ButtonContainer>
         </Container>
     )
