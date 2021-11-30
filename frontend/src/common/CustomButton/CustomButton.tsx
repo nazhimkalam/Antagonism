@@ -7,14 +7,21 @@ import styled from 'styled-components';
 type Props = {
     type: 'primary' | 'secondary',
     content: string,
-    handleEvent: React.MouseEventHandler<HTMLElement>
+    handleEvent: React.MouseEventHandler<HTMLElement>,
+    width: string,
+    borderRadius: string,
+}
+
+type ButtonContainerProps = {
+    width: string,
+    borderRadius: string,
 }
 
 const CustomButton = (props: Props) => {
-    const { type, content, handleEvent } = props
+    const { type, content, handleEvent, width, borderRadius } = props
 
     return (
-        <ButtonContainer>
+        <ButtonContainer width={width} borderRadius={borderRadius}>
             <Button className={type} onClick={handleEvent}>{content}</Button>
         </ButtonContainer>
     )
@@ -22,11 +29,12 @@ const CustomButton = (props: Props) => {
 
 export default CustomButton
 
-const ButtonContainer = styled.div`
+const ButtonContainer = styled.div<ButtonContainerProps>`
     button{
-        width: 150px;
-        border-radius: 5px;
+        width: ${props => props.width};
+        border-radius: ${props => props.borderRadius};
         margin: .3pc;
+        height: 2.2pc;
     }
     .primary {
         background-color: ${theme.buttonColor.primary};
