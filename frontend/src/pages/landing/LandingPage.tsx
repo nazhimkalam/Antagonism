@@ -21,8 +21,8 @@ const LandingPage = () => {
             <Image src="logos/logo1.png" alt="logo" title="Antagonism" preview={false} />
             <Title level={2}>Welcome to Antagonism</Title>
             <ButtonContainer>
-                <CustomButton width="120px" borderRadius="15px" type="primary" content="Login" handleEvent={navigateToLogin}/>
-                <CustomButton width="120px" borderRadius="15px" type="secondary" content="Sign up" handleEvent={navigateToRegister}/>
+                <CustomButton width="120px" borderRadius="8px" type="primary" content="Login" handleEvent={navigateToLogin}/>
+                <CustomButton width="120px" borderRadius="8px" type="secondary" content="Sign up" handleEvent={navigateToRegister}/>
             </ButtonContainer>
         </Container>
     )

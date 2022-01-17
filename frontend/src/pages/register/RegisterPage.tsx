@@ -1,10 +1,12 @@
 import { Image, Typography } from 'antd';
 import { useState } from 'react';
+import { useDispatch } from 'react-redux';
 import { useHistory } from 'react-router';
 import styled from 'styled-components';
 import { RoutePaths } from '../../app/routes';
 import CustomButton from '../../common/CustomButton/CustomButton';
 import CustomTextField from '../../common/CustomTextField/CustomTextField';
+import { login } from '../../redux/reducers/userReducer';
 
 const RegisterPage = () => {
     const { Title } = Typography;
@@ -12,8 +14,17 @@ const RegisterPage = () => {
     const [fullName, setFullName] = useState<string>()
     const [username, setUsername] = useState<string>();
     const [password, setPassword] = useState<string>();
+    const dispatch = useDispatch();
 
-    const handleRegister = () => {}
+    const handleRegister = () => {
+        if (!fullName || !username || !password) {
+            alert('Please enter your full name, username and password');
+            return;
+        }
+
+        dispatch(login({ id: 1, fullName, username, password }));
+        history.push(RoutePaths.home);
+    }
 
     const navigateToLogin = () => {
         history.push(RoutePaths.login);
