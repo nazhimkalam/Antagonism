@@ -27,8 +27,8 @@ const LoginPage = () => {
                 <CustomTextField value={password} setValue={setPassword} type="password" isRequired={true} placeholder="Password" width="250px"/>
             </TextfieldContainer>
             <ButtonContainer>
-                <CustomButton width="250px" borderRadius="15px" type="primary" content="Login" handleEvent={handleLogin}/>
-                <CustomButton width="250px" borderRadius="15px" type="secondary" content="Sign up" handleEvent={navigateToRegister}/>
+                <CustomButton width="250px" borderRadius="8px" type="primary" content="Sign in" handleEvent={handleLogin}/>
+                <CustomButton width="250px" borderRadius="8px" type="secondary" content="Go to register" handleEvent={navigateToRegister}/>
             </ButtonContainer>
         </Container>
     )
