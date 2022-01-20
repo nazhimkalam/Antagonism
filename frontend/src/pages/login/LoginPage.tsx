@@ -26,7 +26,7 @@ const LoginPage = () => {
 
     const navigateToRegister = () => {
         history.push(RoutePaths.register);
-    }
+    }   
 
     return (
         <Container>

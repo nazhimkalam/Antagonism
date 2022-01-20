@@ -2,15 +2,15 @@ import styled from 'styled-components';
 
 const DetectorPage = () => {
     return (
-        <Container>
+        <DetectorStyled>
             {/* header */}
             {/* detector hero */}
             {/* detector */}
             {/* footer */}
-        </Container>
+        </DetectorStyled>
     )
 }
 
 export default DetectorPage
 
-const Container = styled.div``;
+const DetectorStyled = styled.div``;

@@ -7,16 +7,19 @@ import HowItWorks from '../../components/HowItWorks/HowItWorks';
 
 const HomePage = () => {
     return (
-        <Container>
+        <HomePageContainer>
             <Header />
             <Hero />
             <About />
             <HowItWorks />
             <Footer />
-        </Container>
+        </HomePageContainer>
     )
 }
 
 export default HomePage
 
-const Container = styled.div``;
+const HomePageContainer = styled.div`
+    margin: 1pc auto;
+    max-width: 1400px;
+`;
