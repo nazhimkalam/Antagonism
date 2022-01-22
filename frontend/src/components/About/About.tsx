@@ -3,7 +3,7 @@ import { theme } from "../../utils/theme";
 
 const About = () => {
   return (
-    <AboutStyled>
+    <AboutStyled id="about-section">
       <h2>About Antagonism</h2>
       <p>
         Lorem ipsum dolor, sit amet consectetur adipisicing elit. Excepturi

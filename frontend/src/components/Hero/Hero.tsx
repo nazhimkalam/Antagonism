@@ -7,7 +7,10 @@ import { theme } from '../../utils/theme';
 const Hero = () => {
     const history = useHistory();
 
-    const scrollToAbout = () => {};
+    const scrollToAbout = () => {
+        const aboutSection = document.getElementById('about-section')!;
+        aboutSection.scrollIntoView({ behavior: 'smooth', block: 'start', inline: 'nearest' });
+    };
 
     const navigateToDetector = () => {
         history.push(RoutePaths.detector);
@@ -35,7 +38,7 @@ export default Hero
 const HeroStyled = styled.div`
     display: flex;
     justify-content: space-between;
-    margin: 2pc;
+    margin: 8vh 2pc;
     height: 90vh;
 
     section {

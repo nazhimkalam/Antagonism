@@ -32,7 +32,7 @@ export default Header
 const Container = styled.div`
     display: flex;
     align-items: center;
-    justify-content: space-between;;    
+    justify-content: space-between;
 `;
 
 const ImageContainer = styled.div`
