@@ -33,8 +33,6 @@ const Container = styled.div`
     display: flex;
     align-items: center;
     justify-content: space-between;;    
-
-    margin: 0 1.5pc 0 0;
 `;
 
 const ImageContainer = styled.div`
