@@ -34,7 +34,6 @@ const DetectorHeroStyled = styled.div`
   display: flex;
   justify-content: space-between;
   margin: 8vh 2pc;
-  height: 90vh;
 
   section {
     img {

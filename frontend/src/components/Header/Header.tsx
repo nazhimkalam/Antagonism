@@ -16,9 +16,13 @@ const Header = () => {
         history.push(RoutePaths.landing);
     }
 
+    const navigateToHome = () => {
+        history.replace(RoutePaths.home);
+    }
+
     return (
         <Container>
-            <ImageContainer>
+            <ImageContainer onClick={navigateToHome}>
                 <Image src="logos/logo1.png" alt="logo" title="Antagonism" preview={false} />
                 <Title level={3}>Antagonism</Title>
             </ImageContainer>
