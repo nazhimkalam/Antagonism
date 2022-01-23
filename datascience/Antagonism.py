@@ -1,5 +1,3 @@
-#!/usr/bin/env python
-# coding: utf-8
 
 # # Antagonism
 # 
@@ -15,10 +13,6 @@
 # - 1: Hate
 
 # ### Importing libraries
-
-# In[151]:
-
-
 import pandas as pd
 import re
 import pickle
@@ -33,36 +27,18 @@ from sklearn.linear_model import SGDClassifier
 from sklearn.model_selection import train_test_split
 from sklearn.metrics import f1_score, accuracy_score, precision_score
 
-
 # ### Reading the Train and Test dataset 
-
-# In[33]:
-
-
 train_data = pd.read_csv('dataset/train.csv')
 test_data = pd.read_csv('dataset/test.csv')
 
-
-# In[34]:
-
-
 # Reading first 15 rows of the training data
 train_data.head(15)
-
-
-# In[35]:
-
 
 # Size of dataset
 print("Training Set:"% train_data.columns, train_data.shape) # 31962 rows for Training dataset
 print("Testing Set:"% test_data.columns, test_data.shape)    # 171197 rows for Testing dataset
 
-
 # ### Cleaning the dataset 
-
-# In[36]:
-
-
 def  clean_text(df, text_field): #
     # This function removes all unnecessary characters from the text
     df[text_field] = df[text_field].str.lower()
@@ -72,16 +48,8 @@ def  clean_text(df, text_field): #
 train_clean = clean_text(train_data, "tweet")
 test_clean = clean_text(test_data, "tweet")
 
-
-# In[37]:
-
-
 # You can now see that the tweets are cleaned and readable
 train_clean.head(15)
-
-
-# In[38]:
-
 
 # Getting count of Negative and Positive label from train dataset
 print("The count for NOT HATE label from train dataset: ", len(train_clean[train_clean.label == 0]))
@@ -89,12 +57,7 @@ print("The count for HATE label from train dataset: ", len(train_clean[train_cle
 
 # The output is clearly imbalanced
 
-
 # ### Handling the imbalance in the data
-
-# In[39]:
-
-
 train_not_hate = train_clean[train_clean.label == 0]
 train_hate = train_clean[train_clean.label == 1]
 
@@ -108,20 +71,12 @@ train_upsampled['label'].value_counts()
 
 
 # ### Creating pipeline using sklearn
-
-# In[40]:
-
-
 pipeline_sgd = Pipeline([('vect', CountVectorizer()), 
                          ('tfidf',  TfidfTransformer()), 
                          ('nb', SGDClassifier()),])
 
 
 # ### Training the model 
-
-# In[41]:
-
-
 X_train, X_test, y_train, y_test = train_test_split(train_upsampled['tweet'],
                                                     train_upsampled['label'],
                                                     random_state = 0)
@@ -129,10 +84,6 @@ model = pipeline_sgd.fit(X_train, y_train)
 
 
 # ### Evaluating the model
-
-# In[59]:
-
-
 y_predict = model.predict(X_test)
 f1_score_result = f1_score(y_test, y_predict)
 accuracy_score_result = accuracy_score(y_test, y_predict)
@@ -142,37 +93,17 @@ print("F1 score %s" % round(f1_score_result*100, 2), "%")
 print("Accuracy score %s" % round(accuracy_score_result*100, 2), "%")
 print("Precision score %s" % round(precision_score_result*100, 2), "%")
 
-
 # ### Saving model
-
-# In[152]:
-
-
 pickle.dump(model, open("antagonism_model", 'wb'))
 
-
 # ### Loading model
-
-# In[153]:
-
-
 loaded_model = pickle.load(open("antagonism_model", 'rb'))
 
-
 # ### Testing the model
-
-# In[154]:
-
-
 def clean_text(text):
     text = text.lower()
     text = re.sub(r"(@[A-Za-z0-9]+)|([^0-9A-Za-z \t])|(\w+:\/\/\S+)|^rt|http.+?", "", text)
     return text
-    
-
-
-# In[ ]:
-
 
 test_data = pd.read_csv('dataset/test.csv')
 
@@ -185,10 +116,3 @@ for i in range (test_data.size):
     if(result == 1):
         print(sampleTestTweet, "<==>", output[result])
         print()
-
-
-# In[ ]:
-
-
-
-
