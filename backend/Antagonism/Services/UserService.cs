@@ -54,8 +54,8 @@ namespace Antagonism.Services
                 if (user.UserName != null)
                     updateUser.UserName = user.UserName;
 
-                if (user.Password != null)
-                    updateUser.Password = user.Password;
+                if (user.Email != null)
+                    updateUser.Email = user.Email;
 
                 if (user.FullName != null)
                     updateUser.FullName = user.FullName;
