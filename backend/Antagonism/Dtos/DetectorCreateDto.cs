@@ -1,22 +1,16 @@
 ﻿using System.ComponentModel.DataAnnotations;
 
-namespace Antagonism.Models
+namespace Antagonism.Dtos
 {
-    public class Detector
+    public class DetectorCreateDto
     {
-        [Key]
-        public int Id { get; set; }
-
         [Required]
         public int UserId { get; set; }
 
         [Required]
         public int Result { get; set; }
-
         [Required]
         public string Description { get; set; }
 
-        public string CreatedAt { get; set; }
-        public string UpdatedAt { get; set; }
     }
 }

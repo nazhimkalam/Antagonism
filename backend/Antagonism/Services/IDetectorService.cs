@@ -7,10 +7,13 @@ namespace Antagonism.Services
     public interface IDetectorService
     {
         IEnumerable<Detector> GetAllDetections();
-        User GetDetectionById(int id);
+
+        Detector GetDetectionById(int id);
+
         void CreateDetection(Detector detection);
+
         bool Save();
-        void UpdateDetection(Detector detection);
+
         void DeleteDetection(Detector detection);
     }
 }
