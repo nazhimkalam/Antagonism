@@ -23,7 +23,6 @@ jobs:
       uses: actions/setup-node@v2
       with:
         node-version: ${{ matrix.node-version }}
-    - working-directory: ./frontend
     - run: npm i
     - run: npm install -g firebase-tools
     - run: npm run build 
