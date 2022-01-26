@@ -6,22 +6,35 @@ import styled from 'styled-components';
 import { RoutePaths } from '../../app/routes';
 import CustomButton from '../../common/CustomButton/CustomButton';
 import CustomTextField from '../../common/CustomTextField/CustomTextField';
+import { auth } from '../../firebase';
 import { login } from '../../redux/reducers/userReducer';
 
 const LoginPage = () => {
     const { Title } = Typography;
     const history = useHistory();
-    const [username, setUsername] = useState<string>();
     const [password, setPassword] = useState<string>();
+    const [email, setEmail] = useState<string>();
     const dispatch = useDispatch();
+    const [isLoading, setIsLoading] = useState<boolean>(false);
 
     const handleLogin = () => {
-        if (!username || !password) {
-            alert('Please enter your username and password');
+        if (!email || !password) {
+            alert('Please enter your email and password');
             return;
         }
-        dispatch(login({ id: 1, username, password }));
-        history.push(RoutePaths.home);
+
+        if (!email.match(/^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/)) {
+            alert("Email not in valid format")
+            return;       
+        }
+
+        setIsLoading(true);
+        auth.signInWithEmailAndPassword(email, password).then((userAuth: any) => {
+            dispatch( login({ uid: userAuth.user.uid, email: userAuth.user.email, displayName: userAuth.user.displayName }) );
+            history.push(RoutePaths.home);
+        })
+        .catch((error: any) => alert(error))
+        .finally(() => setIsLoading(false));
     }
 
     const navigateToRegister = () => {
@@ -33,12 +46,12 @@ const LoginPage = () => {
             <Image src="logos/logo1.png" alt="logo" title="Antagonism" preview={false} />
             <Title level={2}>Login</Title>
             <TextfieldContainer>
-                <CustomTextField value={username} setValue={setUsername} type="text" isRequired={true} placeholder="Username" width="250px"/>
+                <CustomTextField value={email} setValue={setEmail} type="email" isRequired={true} placeholder="Email" width="250px"/>
                 <CustomTextField value={password} setValue={setPassword} type="password" isRequired={true} placeholder="Password" width="250px"/>
             </TextfieldContainer>
             <ButtonContainer>
-                <CustomButton width="250px" borderRadius="8px" type="primary" content="Sign in" handleEvent={handleLogin}/>
-                <CustomButton width="250px" borderRadius="8px" type="secondary" content="Go to register" handleEvent={navigateToRegister}/>
+                <CustomButton width="250px" borderRadius="8px" type="primary" content={isLoading ? "Processing..." : "Sign in"} handleEvent={handleLogin} isDisabled={isLoading}/>
+                <CustomButton width="250px" borderRadius="8px" type="secondary" content="Go to register" handleEvent={navigateToRegister} isDisabled={isLoading}/>
             </ButtonContainer>
         </Container>
     )

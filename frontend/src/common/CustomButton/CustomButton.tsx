@@ -10,6 +10,7 @@ type Props = {
     handleEvent: React.MouseEventHandler<HTMLElement>,
     width: string,
     borderRadius: string,
+    isDisabled?: boolean
 }
 
 type ButtonContainerProps = {
@@ -18,11 +19,11 @@ type ButtonContainerProps = {
 }
 
 const CustomButton = (props: Props) => {
-    const { type, content, handleEvent, width, borderRadius } = props
+    const { type, content, handleEvent, width, borderRadius, isDisabled } = props
 
     return (
         <ButtonContainer width={width} borderRadius={borderRadius}>
-            <Button className={type} onClick={handleEvent}>{content}</Button>
+            <Button className={type} onClick={handleEvent} disabled={isDisabled}>{content}</Button>
         </ButtonContainer>
     )
 }
