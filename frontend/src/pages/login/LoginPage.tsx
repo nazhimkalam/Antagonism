@@ -38,7 +38,7 @@ const LoginPage = () => {
 
     return (
         <Container>
-            <Image src="logos/logo1.png" alt="logo" title="Antagonism" preview={false} />
+            <Image src="/logos/logo1.png" alt="logo" title="Antagonism" preview={false} />
             <Title level={2}>Login</Title>
             <TextfieldContainer>
                 <CustomTextField value={email} setValue={setEmail} type="email" isRequired={true} placeholder="Email" width="250px"/>
