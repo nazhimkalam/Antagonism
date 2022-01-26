@@ -24,6 +24,7 @@
     "eslint-plugin-prettier": "^3.1.4",
     "eslint-plugin-react": "^7.21.5",
     "eslint-plugin-react-hooks": "^4.0.8",
+    "firebase": "^9.6.4",
     "notistack": "^2.0.3",
     "prettier": "^2.0.0",
     "react": "^17.0.2",
