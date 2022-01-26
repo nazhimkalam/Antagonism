@@ -23,11 +23,6 @@ const LoginPage = () => {
             return;
         }
 
-        if (!email.match(/^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/)) {
-            alert("Email not in valid format")
-            return;       
-        }
-
         setIsLoading(true);
         auth.signInWithEmailAndPassword(email, password).then((userAuth: any) => {
             dispatch( login({ uid: userAuth.user.uid, email: userAuth.user.email, displayName: userAuth.user.displayName }) );

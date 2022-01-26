@@ -3,7 +3,7 @@ import styled from "styled-components";
 import CustomButton from "../../common/CustomButton/CustomButton";
 
 const Detector = () => {
-  const [isLoading, setIsLoading] = useState<boolean>(false);
+  // const [isLoading, setIsLoading] = useState<boolean>(false);
   const [textareaContent, setTextareaContent] = useState<string>("");
 
   const handleScan = () => {

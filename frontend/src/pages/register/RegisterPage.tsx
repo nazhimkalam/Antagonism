@@ -24,11 +24,6 @@ const RegisterPage = () => {
             return;
         }
 
-        if (!email.match(/^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/)) {
-            alert("Email not in valid format")
-            return;       
-        }
-
         setIsLoading(true);
         auth.createUserWithEmailAndPassword(email, password).then((userAuth: any) => {
             userAuth.user.updateProfile({ displayName: fullName }).then(() => {
