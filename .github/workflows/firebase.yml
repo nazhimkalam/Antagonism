@@ -19,9 +19,9 @@ jobs:
       uses: actions/setup-node@v2
       with:
         node-version: ${{ matrix.node-version }}
-    - run: npm i
-    - run: npm install -g firebase-tools
-    - run: npm run build 
+    - run: cd ./frontend && npm i
+    - run: cd ./frontend && npm install -g firebase-tools
+    - run: cd ./frontend && npm run build 
     - name: Archive Build
       uses: actions/upload-artifact@v2
       with:
