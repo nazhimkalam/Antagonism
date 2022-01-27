@@ -27,7 +27,7 @@ const Hero = () => {
             </section>
 
             <section>
-                <img src="/banner.png" alt="" />
+                <img src="./banner.PNG" alt="" />
             </section>
         </HeroStyled>
     )

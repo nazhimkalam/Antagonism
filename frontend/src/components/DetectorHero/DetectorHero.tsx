@@ -22,7 +22,7 @@ const DetectorHero = () => {
       </section>
 
       <section className="right">
-        <img src="/banner-2.png" alt="" />
+        <img src="/banner-2.PNG" alt="" />
       </section>
     </DetectorHeroStyled>
   );

@@ -21,7 +21,7 @@ const HowItWorks = () => {
         pariatur, laboriosam voluptates distinctio fugit assumenda natus cumque.
       </p>
 
-      <img src="/banner.png" alt="" />
+      <img src="banner.PNG" alt="" />
 
       <br />
       <br />
