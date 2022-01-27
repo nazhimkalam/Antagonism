@@ -23,7 +23,7 @@ const Header = () => {
     return (
         <Container>
             <ImageContainer onClick={navigateToHome}>
-                <Image src="logos/logo1.png" alt="logo" title="Antagonism" preview={false} />
+                <Image src="logos/logo1.PNG" alt="logo" title="Antagonism" preview={false} />
                 <Title level={3}>Antagonism</Title>
             </ImageContainer>
             <CustomButton width="100px" borderRadius="50px" type="primary" content="Logout" handleEvent={handleLogout}/>

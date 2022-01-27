@@ -41,7 +41,7 @@ const RegisterPage = () => {
 
     return (
         <Container>
-            <Image src="/logos/logo1.png" alt="logo" title="Antagonism" preview={false} />
+            <Image src="/logos/logo1.PNG" alt="logo" title="Antagonism" preview={false} />
             <Title level={2}>Register</Title>
             <TextfieldContainer>
                 <CustomTextField value={fullName} setValue={setFullName} type="text" isRequired={true} placeholder="Full name" width="250px"/>
