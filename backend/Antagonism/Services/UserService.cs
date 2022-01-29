@@ -51,9 +51,6 @@ namespace Antagonism.Services
                 if (updateUser == null)
                     throw new Exception("User not found");
 
-                if (user.UserName != null)
-                    updateUser.UserName = user.UserName;
-
                 if (user.Email != null)
                     updateUser.Email = user.Email;
 

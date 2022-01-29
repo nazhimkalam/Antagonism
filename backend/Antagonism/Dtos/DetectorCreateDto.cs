@@ -8,8 +8,6 @@ namespace Antagonism.Dtos
         public int UserId { get; set; }
 
         [Required]
-        public int Result { get; set; }
-        [Required]
         public string Description { get; set; }
 
     }
