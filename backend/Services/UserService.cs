@@ -57,9 +57,6 @@ namespace Antagonism.Services
                 if (user.FullName != null)
                     updateUser.FullName = user.FullName;
 
-                if (user.FullName != null)
-                    updateUser.UpdatedAt = DateTime.UtcNow.ToString();
-
                 var response =  await _context.SaveChangesAsync();
 
                 if (response != 0)

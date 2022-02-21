@@ -13,9 +13,5 @@ namespace Antagonism.Models
         [Required]
         public string Email { get; set; }
 
-        public string CreatedAt { get; set; }
-
-        public string UpdatedAt { get; set; }
-
     }
 }

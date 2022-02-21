@@ -24,10 +24,6 @@ namespace Antagonism.Services
             if (detection == null)
                 throw new ArgumentNullException(nameof(detection));
 
-            var detectionText = detection.Description;
-
-            var result = await CreateDetectionCall(detectionText);
-
             _context.Detections.Add(detection);
         }
 
@@ -50,22 +46,6 @@ namespace Antagonism.Services
         }
 
         public bool Save() => _context.SaveChanges() >= 0;
-
-        public static async Task<HttpResponseMessage> CreateDetectionCall(string detectionText)
-        {
-            string postDetectionApi = "http://127.0.0.1:8085/predict";
-            var myContent = JsonConvert.SerializeObject(detectionText);
-
-            var buffer = System.Text.Encoding.UTF8.GetBytes(myContent);
-            var byteContent = new ByteArrayContent(buffer);
-
-            byteContent.Headers.ContentType = new MediaTypeHeaderValue("application/json");
-
-            HttpResponseMessage response = await client.PostAsync(postDetectionApi, byteContent);
-            response.EnsureSuccessStatusCode();
-
-            return response;
-        }
 
     }
 }

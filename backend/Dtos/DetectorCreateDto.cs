@@ -10,5 +10,8 @@ namespace Antagonism.Dtos
         [Required]
         public string Description { get; set; }
 
+        [Required]
+        public string Result { get; set; }
+
     }
 }
