@@ -1,13 +1,18 @@
 import axios from "axios";
 import { useState } from "react";
+import { useSelector } from "react-redux";
 import styled from "styled-components";
 import { detectionApi } from "../../api/DetectionApi";
+import { detectorApi } from "../../api/DetectorApi";
+import { userApi } from "../../api/UserApi";
 import CustomButton from "../../common/CustomButton/CustomButton";
+import { selectUser } from "../../redux/reducers/userReducer";
 
 const Detector = () => {
   const [isLoading, setIsLoading] = useState<boolean>(false);
   const [textareaContent, setTextareaContent] = useState<string>("");
   const [result, setResult] = useState<string | undefined>();
+  const user = useSelector(selectUser);
 
   const handleScan = () => {
     if (!textareaContent) {
@@ -15,20 +20,29 @@ const Detector = () => {
       return;
     }
     setIsLoading(true);
-    let requestBody = { detectionText: textareaContent };
-
+    let detectionRequestBody = { detectionText: textareaContent };
+    const categories = ["Not hate", "hate"]
     axios
-      .post(detectionApi.predict, requestBody)
+      .post(detectionApi.predict, detectionRequestBody)
       .then((response) => {
-        let result = response.data["Prediction"];
-        setResult(result);
+        let detectionResult = response.data["Prediction"];
+        let userRequestBody = { fullName: user.displayName ?? "", email: user.email ?? "" };
+        let detectionResultIndex = categories.indexOf(detectionResult);
+        
+        setResult(detectionResult);
+
+        axios.post(userApi.create, userRequestBody).then((response) => { 
+          let userId = parseInt(response.data["id"]);
+          let detectorRequestBody = { userId: userId, result: detectionResultIndex.toString(), description: textareaContent };
+
+          axios.post(detectorApi.create, detectorRequestBody).then(() => { 
+            alert("Successfully scanned and saved!");
+        
+          }).catch(() => alert("Something weht wrong when creating detection result into the database"));
+        }).catch(() => alert("Something went wrong while creating the user document"));
       })
-      .catch((error) => {
-        alert("Error: " + error.message);
-      })
-      .finally(() => {
-        setIsLoading(false);
-      });
+      .catch(() => alert("Something went wrong when scanning the text"))
+      .finally(() => setIsLoading(false));
   };
 
   const handleReset = () => {

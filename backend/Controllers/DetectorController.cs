@@ -4,6 +4,7 @@ using Antagonism.Services;
 using Microsoft.AspNetCore.Mvc;
 using System.Collections.Generic;
 using Antagonism.Dtos;
+using Microsoft.AspNetCore.Cors;
 
 namespace Antagonism.Controllers
 {
@@ -20,6 +21,7 @@ namespace Antagonism.Controllers
             _mapper = mapper;
         }
 
+        [EnableCors]
         [HttpGet]
         public ActionResult<IEnumerable<Detector>> GetAllDetections()
         {
@@ -27,6 +29,7 @@ namespace Antagonism.Controllers
             return Ok(_mapper.Map<IEnumerable<DetectorReadDto>>(detections));
         }
 
+        [EnableCors]
         [HttpGet("{id}", Name = "GetDetectionById")]
         public ActionResult<DetectorReadDto> GetDetectionById(int id)
         {
@@ -38,6 +41,7 @@ namespace Antagonism.Controllers
             return NotFound();
         }
 
+        [EnableCors]
         [HttpPost]
         public ActionResult<DetectorReadDto> CreateDetection(DetectorCreateDto createDetectorReq)
         {
@@ -50,6 +54,7 @@ namespace Antagonism.Controllers
             return CreatedAtRoute(nameof(GetDetectionById), new { Id = resultDetection.Id }, resultDetection);
         }
 
+        [EnableCors]
         [HttpDelete("{id}")]
         public ActionResult DeleteDetction(int id)
         {

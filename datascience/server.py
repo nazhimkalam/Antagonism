@@ -1,3 +1,4 @@
+from distutils.log import debug
 import joblib
 import numpy as np
 import pandas as pd
@@ -40,4 +41,4 @@ class Predict(Resource):
 API.add_resource(Predict, '/predict')
 
 if __name__ == '__main__':
-    APP.run(port=8085)
+    APP.run(port=5003, debug=True)

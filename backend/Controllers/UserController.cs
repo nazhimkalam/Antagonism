@@ -4,6 +4,7 @@ using Antagonism.Services;
 using Microsoft.AspNetCore.Mvc;
 using System.Collections.Generic;
 using Antagonism.Dtos;
+using Microsoft.AspNetCore.Cors;
 
 namespace Antagonism.Controllers
 {
@@ -20,6 +21,7 @@ namespace Antagonism.Controllers
             _mapper = mapper;
         }
 
+        [EnableCors]
         [HttpGet]
         public ActionResult<IEnumerable<User>> GetAllUsers()
         {
@@ -27,6 +29,7 @@ namespace Antagonism.Controllers
             return Ok(_mapper.Map<IEnumerable<UserReadDto>>(users));
         }
 
+        [EnableCors]
         [HttpGet("{id}", Name = "GetUserById")]
         public ActionResult<UserReadDto> GetUserById(int id)
         {
@@ -37,7 +40,8 @@ namespace Antagonism.Controllers
             }
             return NotFound();
         }
-
+        
+        [EnableCors]
         [HttpPost]
         public ActionResult<UserReadDto> CreateUser(UserCreateDto createUserReq)
         {
@@ -50,6 +54,7 @@ namespace Antagonism.Controllers
             return CreatedAtRoute(nameof(GetUserById), new { Id = resultUser.Id }, resultUser);
         }
 
+        [EnableCors]
         [HttpPut("{id}")]
         public ActionResult UpdateUser(int id, UserUpdateDto updateUserReq)
         {
@@ -67,6 +72,7 @@ namespace Antagonism.Controllers
             return Ok(_mapper.Map<UserReadDto>(updatedResult));
         }
 
+        [EnableCors]
         [HttpDelete("{id}")]
         public ActionResult DeleteUser(int id)
         {
