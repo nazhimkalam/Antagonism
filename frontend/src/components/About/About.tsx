@@ -6,27 +6,15 @@ const About = () => {
     <AboutStyled id="about-section">
       <h2>About Antagonism</h2>
       <p>
-        Lorem ipsum dolor, sit amet consectetur adipisicing elit. Excepturi
-        dicta at deserunt voluptatum explicabo quia tempore impedit, deleniti
-        aperiam quae similique expedita minima libero dolores cupiditate sunt
-        tenetur facilis perspiciatis eos accusantium et ad? Quos veniam rerum
-        pariatur, laboriosam voluptates distinctio fugit assumenda natus cumque.
+        Hate speech is defined as any sort of spoken, written, or behavioral communication that attacks or utilizes disparaging or discriminating terminology towards a person or group because of who they are, such as their religion, ethnicity, nationality, race, color, ancestry, sex, or any identification factor.
       </p>
 
       <p>
-        Lorem ipsum dolor, sit amet consectetur adipisicing elit. Excepturi
-        dicta at deserunt voluptatum explicabo quia tempore impedit, deleniti
-        aperiam quae similique expedita minima libero dolores cupiditate sunt
-        tenetur facilis perspiciatis eos accusantium et ad? Quos veniam rerum
-        pariatur, laboriosam voluptates distinctio fugit assumenda natus cumque.
+        This a web application that will be able to classify if the input message is of type ‘hate’ or ‘not’. Moreover, the areas where the level of hate was detected from the input message will be highlighted.
       </p>
 
       <p>
-        Lorem ipsum dolor, sit amet consectetur adipisicing elit. Excepturi
-        dicta at deserunt voluptatum explicabo quia tempore impedit, deleniti
-        aperiam quae similique expedita minima libero dolores cupiditate sunt
-        tenetur facilis perspiciatis eos accusantium et ad? Quos veniam rerum
-        pariatur, laboriosam voluptates distinctio fugit assumenda natus cumque.
+        When there are large volumes of emails which needs to be sent with in a company/organization, reviewing all of them will be challenging and this is where Antagonism kicks in. Moreover, this can be used anywhere related to do with reviewing text/speech for any such event etc...
       </p>
 
       <br />
@@ -49,6 +37,6 @@ const AboutStyled = styled.div`
 
   > p {
     font-size: 1.2rem;
-    text-align: center;
+    text-align: justify;
   }
 `;

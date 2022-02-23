@@ -3,9 +3,12 @@ import styled from 'styled-components';
 import CustomButton from '../../common/CustomButton/CustomButton';
 import { RoutePaths } from '../../app/routes';
 import { theme } from '../../utils/theme';
+import { useSelector } from 'react-redux';
+import { selectUser } from '../../redux/reducers/userReducer';
 
 const Hero = () => {
     const history = useHistory();
+    const user = useSelector(selectUser);
 
     const scrollToAbout = () => {
         const aboutSection = document.getElementById('about-section')!;
@@ -19,7 +22,7 @@ const Hero = () => {
     return (
         <HeroStyled>
             <section>
-                <h1>Welcome Nazhim!</h1>
+                <h1>Welcome {user.displayName}!</h1>
                 <h2>Get Started!</h2>
 
                 <CustomButton width="250px" borderRadius="20px" type="primary" content="ABOUT" handleEvent={scrollToAbout}/>

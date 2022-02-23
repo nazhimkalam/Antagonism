@@ -46,6 +46,7 @@ const ImageContainer = styled.div`
 
     img {
         width: 100px;
+        cursor: pointer;
         object-fit: contain;
     }
 

@@ -6,19 +6,7 @@ const HowItWorks = () => {
     <HowItWorksStyled>
       <h2>How it works? </h2>
       <p>
-        Lorem ipsum dolor, sit amet consectetur adipisicing elit. Excepturi
-        dicta at deserunt voluptatum explicabo quia tempore impedit, deleniti
-        aperiam quae similique expedita minima libero dolores cupiditate sunt
-        tenetur facilis perspiciatis eos accusantium et ad? Quos veniam rerum
-        pariatur, laboriosam voluptates distinctio fugit assumenda natus cumque.
-      </p>
-
-      <p>
-        Lorem ipsum dolor, sit amet consectetur adipisicing elit. Excepturi
-        dicta at deserunt voluptatum explicabo quia tempore impedit, deleniti
-        aperiam quae similique expedita minima libero dolores cupiditate sunt
-        tenetur facilis perspiciatis eos accusantium et ad? Quos veniam rerum
-        pariatur, laboriosam voluptates distinctio fugit assumenda natus cumque.
+        The application will be able to scan the text and classify it as either "Hate" or "Not Hate" text. Naviagte to the detection section and paste the text you want to scan and click on the scan button. The result will be displayed. The result will also be saved into the database, along with the user who scanned the text.
       </p>
 
       <img src="banner.PNG" alt="" />
@@ -44,7 +32,7 @@ const HowItWorksStyled = styled.div`
   }
 
   > p {
-    text-align: center;
+    text-align: justify;
     font-size: 1.2rem;
   }
 

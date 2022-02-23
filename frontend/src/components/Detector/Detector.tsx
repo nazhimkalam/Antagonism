@@ -103,7 +103,6 @@ const DetectorStyled = styled.div`
     border-radius: 8px;
     padding: 1pc;
     font-size: 1.2em;
-    font-family: arial;
     margin: auto 1pc;
     outline: none;
   }
@@ -114,13 +113,13 @@ const DetectorStyled = styled.div`
 
     h3 {
       font-size: 1.2em;
-      font-family: arial;
+
       font-weight: bold;
     }
 
     strong {
       font-size: 1.2em;
-      font-family: arial;
+
     }
   }
 `;
