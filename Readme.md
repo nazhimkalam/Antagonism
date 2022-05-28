@@ -17,7 +17,6 @@ All users are able to sign up and log in to the application, 5 reviews will be g
     .NET - backend
     SQL DB  - database
     Python + sklearn - Machine learning
-    Azure  - Hosting application
 
 ### Setup
 
