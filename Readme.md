@@ -20,4 +20,4 @@ All users are able to sign up and log in to the application, 5 reviews will be g
 
 ### Setup
 
-Run the dotnet and python server along the frontend locally 
+Run the dotnet and python server along with the frontend locally (setup guide will be added soon)
